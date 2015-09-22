@@ -6,3 +6,4 @@ bower_components
 bower_components
 .bundle
 *.html
+.sass-cache
