@@ -18,4 +18,34 @@ include ./shared/slide_mixins
 
     +speakerNotes
       :markdown
-        Sass adds a lot of features but in the end it turns into CSS again
+        Sass adds a lot of features but in the end it turns into CSS again. Sass does let us also
+        write extensible modules that can act a little like partials in the scope of CSS
+
+  +littleTitleSlide("Nesting")
+    include:markdown code/deeply_nested.md
+
+    +speakerNotes
+      :markdown
+        Nesting is kind of a theme with computers because the two primary activities that programming languages
+        let us exercise is abstraction and encapsulation. CSS handles nesting by creating multiple statements of
+        selector inheritance. To be noted in our previous non trivial example.
+
+  +littleTitleSlide("the & symbol and what does it do")
+    :markdown
+      It converts a nested selector to join the previous selector on the same element as opposed to being on a child
+      element
+
+  +littleTitleSlide("& Example")
+    include:markdown code/the_ampersand.md
+
+    +speakerNotes
+      :markdown
+        This definitely needs a HTML/CSS Example on the whiteboard where there is more space
+
+  +bigTitleSlide("MORE INFO")
+    :markdown
+      [Guide](http://sass-lang.com/guide)
+
+  +bigTitleSlide("Tools")
+    :markdown
+      [Sass Meister](http://sassmeister.com)
