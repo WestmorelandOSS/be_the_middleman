@@ -1,0 +1,21 @@
+include ./shared/slide_mixins
+
++slideGroup
+  +bigTitleSlide("Sass")
+    :markdown
+      "Sass is the most mature, stable, and powerful professional grade CSS extension language in the world."
+
+  +littleTitleSlide("Trivial Example")
+    include:markdown code/sass.md
+
+    +speakerNotes
+      :markdown
+        Wow it looks the same unlike Haml. That is the real power of SCSS
+        as a super-set of CSS any and all CSS is already SCSS
+
+  +littleTitleSlide("Less Trivial Example")
+    include:markdown code/realsass.md
+
+    +speakerNotes
+      :markdown
+        Sass adds a lot of features but in the end it turns into CSS again
