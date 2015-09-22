@@ -1,5 +1,5 @@
 - var revealLocation = 'bower_components/reveal.js/'
-- var titleData = { title: "Be the Middleman", subtitle: "WOSS Web Dev One", author: "Paul Scarrone", twitter: "@PaulSCoder", email: "paul.scarrone@gmail.com" }
+- var titleData = { title: "Be the Middleman", subtitle: "WOSS Web Dev 1-3", author: "Paul Scarrone", twitter: "@PaulSCoder", email: "paul.scarrone@gmail.com" }
 doctype html
 html(lang="en")
 
@@ -7,19 +7,38 @@ html(lang="en")
 
   include ./shared/head
 
-  link(rel='external' type='text/html' src="./shared/head.jade")
-
   body
     .reveal
       .slides
         +titleSlide(titleData)
-        +ulSlide("Get Started", [
-          "npm install -g bower grunt",
-          "npm install",
-          "bower install",
-          "grunt serve",
-          "go to localhost:8000/example/"
-          ])
+        +bigTitleSlide("Objectives")
+          :markdown
+            - Faster Development
+            - Better Tools
+            - More Happiness
+
+          +speakerNotes
+            :markdown
+              A lot of software development is about saving time from repetition. So using tools that make starting
+              new projects faster or utilize more complex tools without thinking about them can lead to higher output
+              which means you learn more faster or complete your project sooner. This can only mean more happiness.
+
+        +littleTitleSlide("Better Tools")
+          :markdown
+            - Haml
+            - Templating
+            - Sass
+            - Sprockets
+
+          +speakerNotes
+            :markdown
+              - Cleaner markup
+              - Abstraction of repetitive markup
+              - More robust styles and frameworks
+              - Simplify including assets in your pages
+
+        include haml
+
         +bigTitleSlide("I am a big title slide")
           p Enjoy
         +slide()

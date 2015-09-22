@@ -1,0 +1,21 @@
+<div class="sample">
+      <div class="box" style="float:left; width:50%;">
+        <h2 class="sample-erb">.erb</h2>
+        <pre style="background-color:white; color:black; font-size:1.4rem;">&lt;<b class="tag">section</b> class<b class="pun">=”</b>container<b class="pun">”</b>&gt;
+  &lt;<b class="tag">h1</b>&gt;&lt;<b class="pun">%= post.title %</b>&gt;&lt;/<b class="tag">h1</b>&gt;
+  &lt;<b class="tag">h2</b>&gt;&lt;<b class="pun">%= post.subtitle %</b>&gt;&lt;/<b class="tag">h2</b>&gt;
+  &lt;<b class="tag">div</b> class<b class="pun">=”</b>content<b class="pun">”</b>&gt;
+    &lt;<b class="pun">%= post.content %</b>&gt;
+  &lt;/<b class="tag">div</b>&gt;
+&lt;/<b class="tag">section</b>&gt;</pre>
+      </div>
+      <div class="box" style="float:left; width:50%; font-size:1.4em;">
+        <h2 class="sample-haml">.haml</h2>
+        <pre style="background-color:white; color:black;">%<b class="tag">section</b>.<b class="tag">container</b>
+  %<b class="tag">h1</b><b class="pun">=</b> post.title
+  %<b class="tag">h2</b><b class="pun">=</b> post.subtitle
+  .<b class="tag">content</b>
+    <b class="pun">=</b> post.content
+</pre>
+      </div>
+    </div>

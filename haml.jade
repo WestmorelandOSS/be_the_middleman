@@ -1,0 +1,70 @@
+include ./shared/slide_mixins
+
++slideGroup
+  +littleTitleSlide("Haml")
+    :markdown
+      "Beautiful, DRY,
+
+      well-indented, clear markup:
+
+      templating haiku."
+
+  +littleTitleSlide("Haml Comparison to ERB")
+    include code/haml_comparison.txt
+
+  +bigTitleSlide("Elements")
+    :markdown
+      - Start with a `%` like `%body`
+      - There is no open and close we handle nesting with Indentation
+
+    +speakerNotes
+      :markdown
+        Indentation matters here %body represents <body></body> while anything
+        indented under that will be considered inside the body element
+
+  +littleTitleSlide("Nesting")
+    include:markdown code/haml_nesting.md
+
+    +speakerNotes
+      :markdown
+        Really the nesting thing should be pretty natural If you write your HTML
+        with a clean style your haml will just be more terse and easier to read.
+
+  +bigTitleSlide("Attributes")
+    :markdown
+      - CLASS starts with __.__ like __.container__
+      - ID starts with __#__ like __#menu__
+      - In combination with other Elements %body__.container__
+      - In the case of divs the element can be skipped so __#menu__ is a div with ID menu
+      - For everything else we use a Ruby Hash {key: "value"}
+
+    +speakerNotes
+      :markdown
+        These . and # symbols are shortcuts to make the comparison between
+        CSS selectors and your markup as close as possible visually
+
+  +littleTitleSlide("# and . Samples")
+    include:markdown code/class_and_id.md
+
+    +speakerNotes
+      :markdown
+        Order should go ID then CLASS
+
+        Notice that the divs are implied with class and id shortcuts
+
+  +bigTitleSlide("Partials")
+    :markdown
+      - Abstraction of oft repeated markup
+      - eg. Navigation, Headers, & Footers
+      - Modularization of display components
+      (pieces that look the same and are repeated)
+      - eg. Products on Ecom and Blog entries
+
+    +speakerNotes
+      :markdown
+        Abstraction is key to reducing errors and to reduce time updating things.
+        Making an update to a repeated structure is now encapsulated in a single file
+        and much easier to use in multiple pages of your site.
+
+  +littleTitleSlide("Partial Syntax")
+    include:markdown code/partials.md
