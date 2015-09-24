@@ -49,16 +49,7 @@ html(lang="en")
         // Bourbon
         include bourbon
 
-        +bigTitleSlide("")
-          p Enjoy
-        +slide()
-          p This is a normal Slide. Just nest jade under me
-        +slideGroup()
-          +bigTitleSlide("First Slide in a group")
-          +bigTitleSlide("Last Slide in a group")
-        +slide
-          :markdown
-            # Markdown flavored Slide
-            ## Thank you Jade
+        +bigTitleSlide("Lets Build Something")
+          p To the whiteboard
 
     include ./shared/footer
