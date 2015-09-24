@@ -42,6 +42,30 @@ include ./shared/slide_mixins
       :markdown
         This definitely needs a HTML/CSS Example on the whiteboard where there is more space
 
+  +littleTitleSlide("@import")
+    :markdown
+      An extension of CSS @Import to combine multiple files into a single stylesheet at compile time.
+
+    +speakerNotes
+      :markdown
+        No longer do you need to have multiple html link elements to help organize your stylesheets. This is an important concept to keep styles
+        short and on topic. Navigation can have its own sheet so its easier to encapsulate styles.
+
+  +littleTitleSlide("@include")
+    :markdown
+      __Inlines__ style templates called __Mixins__(like a function) written by yourself or provided by frameworks like __Bourbon__
+
+  +littleTitleSlide("@include example")
+    include:markdown code/sass_mixins.md
+
+  +bigTitleSlide("There is sooo much more")
+    :markdown
+      A story for another day
+
+    +speakerNotes
+      :markdown
+        Sass like CSS is best experienced one at a time
+
   +bigTitleSlide("MORE INFO")
     :markdown
       [Guide](http://sass-lang.com/guide)

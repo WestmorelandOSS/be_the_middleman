@@ -1,5 +1,5 @@
 - var revealLocation = 'bower_components/reveal.js/'
-- var titleData = { title: "Be the Middleman", subtitle: "WOSS Web Dev 1-3", author: "Paul Scarrone", twitter: "@PaulSCoder", email: "paul.scarrone@gmail.com" }
+- var titleData = { title: "Be the Middleman", subtitle: "WOSS Web Dev 1 of 3", author: "Paul Scarrone", twitter: "@PaulSCoder", email: "paul.scarrone@gmail.com" }
 doctype html
 html(lang="en")
 
@@ -37,13 +37,19 @@ html(lang="en")
               - More robust styles and frameworks
               - Simplify including assets in your pages
 
+        // Middleman Slide Group
+        include middleman
+
         // Haml Slide Group
         include haml
 
         // Sass Slide Group
         include sass
 
-        +bigTitleSlide("I am a big title slide")
+        // Bourbon
+        include bourbon
+
+        +bigTitleSlide("")
           p Enjoy
         +slide()
           p This is a normal Slide. Just nest jade under me

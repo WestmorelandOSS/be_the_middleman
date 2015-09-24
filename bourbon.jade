@@ -1,0 +1,29 @@
+include ./shared/slide_mixins
+
++slideGroup
+  +bigTitleSlide("Bourbon Neat and Bitters")
+    :markdown
+      - Bourbon - __Mixin__ library for Sass
+      - Neat - Responsive grid framework for Sass
+      - Bitters - Basic Styles and variables for Bourbon Projects
+
+    +speakerNotes
+      :markdown
+        Remember that markdown thing we looked at well this is what comes of giving people the opportunity to build
+        extensible styles. If you include bourbon in your project and never use any of its mixins it does not add
+        anything to your styles.
+
+  +bigTitleSlide("Installing")
+    :markdown
+      ##### Thankfully because of Sass's integration with ruby they made gems for them
+      - add `gem "neat", "~> 1.7.1"` to your Gemfile
+      - add `gem "bitters", "~> 1.0.0"` to your Gemfile
+      - run `bundle install`
+      - change directory to stylesheets folder `cd source/stylesheets`
+      - run `bourbon install` and `neat install` and `bitters install`
+
+  +littleTitleSlide("Setting up the Grid (Neat)")
+    include:markdown code/grid_settings_scss.md
+
+  +littleTitleSlide("Setting up Bourbon")
+    include:markdown code/bourbon_scss.md

@@ -1,0 +1,52 @@
+include ./shared/slide_mixins
+
++slideGroup
+  +bigTitleSlide("MIDDLEMAN")
+    :markdown
+      #### What do we need?
+      - Ruby - Runtime Environment
+      - Middleman Gem - A library managed by the ruby gems dependency manager (Think App Store)
+      - Sublime Text OR Atom - Somewhere to place beautiful code
+      - Web browser ( >IE9 )
+
+  +bigTitleSlide("Getting Started")
+    :markdown
+      - `gem install middleman`
+      - `middleman init learn-middleman`
+      - `cd learn-middleman`
+      - `middleman server`
+      - Open your browser to __[http://localhost:4567](http://localhost:4567)__
+
+    +speakerNotes
+      :markdown
+        - downloads and installes the middleman App
+        - creates a new middleman project in the folder __learn-middleman__
+        - change our working directory to our new project
+        - start the middleman server so we can see our new site
+        - see it in the browser
+
+  +bigTitleSlide("Important Items")
+    :markdown
+      - `config.rb`
+      - `layouts/`
+      - Assets `javascripts`, `stylesheets`, `images`
+
+    +speakerNotes
+      :markdown
+        - Main configuration file and bootstrap script for middleman
+        - Markup templates that other pages will inherit
+        - Folders for normal assets that will be included in the asset pipeline
+
+  +bigTitleSlide("config.rb")
+    include:markdown code/config_rb.md
+
+  +bigTitleSlide("layouts")
+    :markdown
+      #### Whats this .erb thing!
+      Ruby has a natural templating engine called erb designed to be very similar to HTML. But Haml works out of the box and they can coexist.
+
+      Take note __<%= yield %>__
+
+    +speakerNotes
+      :markdown
+        yield is what makes this a layout wherever yield is invoked the content of your page will be inserted.
