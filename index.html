@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Be the Middleman</title>
+    <meta name="description" content="">
+    <meta name="author" content="Paul Scarrone">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css">
+    <link id="theme" rel="stylesheet" href="bower_components/reveal.js/css/theme/moon.css">
+    <!-- For syntax highlighting-->
+    <link rel="stylesheet" href="bower_components/reveal.js/lib/css/zenburn.css">
+    <script src="//localhost:35729/livereload.js"></script>
+    <script>var revealLocation = 'bower_components/reveal.js/'</script>
+    <!--if lt IE 9
+    script(src= revealLocation + 'lib/js/html5shiv.js')
+    
+    -->
+    <script>
+      document.write( '<link rel="stylesheet" href="' + revealLocation + 'css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+      if(window.location.search.match( /print-pdf/gi )){
+        document.write('<style>.reveal aside.notes{display:block;font-size:0.4em;}.reveal aside.notes:before{content: "Notes: ";font-weight: bold;}</style>');
+      }
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+            <section>
+              <h1>Be the Middleman</h1>
+              <h3>WOSS Web Dev 1 of 3</h3>
+              <p>
+                <div class="left"><small>Paul Scarrone</small></div>
+                <div class="left"><small class="twitter">@PaulSCoder</small></div>
+                <div class="left"><small class="email">paul.scarrone@gmail.com</small></div>
+              </p>
+              <aside class="notes">Title Slide</aside>
+            </section>
+            <section>
+              <h1>Objectives</h1><ul>
+<li>Faster Development</li>
+<li>Better Tools</li>
+<li>More Happiness</li>
+</ul>
+
+                <aside class="notes"><p>A lot of software development is about saving time from repetition. So using tools that make starting
+new projects faster or utilize more complex tools without thinking about them can lead to higher output
+which means you learn more faster or complete your project sooner. This can only mean more happiness.</p>
+
+                </aside>
+            </section>
+            <section>
+              <h3>Better Tools</h3><ul>
+<li>Haml</li>
+<li>Templating</li>
+<li>Sass</li>
+<li>Sprockets</li>
+</ul>
+
+                <aside class="notes"><ul>
+<li>Cleaner markup</li>
+<li>Abstraction of repetitive markup</li>
+<li>More robust styles and frameworks</li>
+<li>Simplify including assets in your pages</li>
+</ul>
+
+                </aside>
+            </section>
+        <!-- Middleman Slide Group-->
+                        <section>
+                                          <section>
+                                            <h1>MIDDLEMAN</h1><h4 id="what-do-we-need-">What do we need?</h4>
+<ul>
+<li>Ruby - Runtime Environment</li>
+<li>Middleman Gem - A library managed by the ruby gems dependency manager (Think App Store)</li>
+<li>Sublime Text OR Atom - Somewhere to place beautiful code</li>
+<li>Web browser ( &gt;IE9 )</li>
+</ul>
+
+                                          </section>
+                                          <section>
+                                            <h1>Getting Started</h1><ul>
+<li><code>gem install middleman</code></li>
+<li><code>middleman init learn-middleman</code></li>
+<li><code>cd learn-middleman</code></li>
+<li><code>middleman server</code></li>
+<li>Open your browser to <strong><a href="http://localhost:4567">http://localhost:4567</a></strong></li>
+</ul>
+
+                                                    <aside class="notes"><ul>
+<li>downloads and installes the middleman App</li>
+<li>creates a new middleman project in the folder <strong>learn-middleman</strong></li>
+<li>change our working directory to our new project</li>
+<li>start the middleman server so we can see our new site</li>
+<li>see it in the browser</li>
+</ul>
+
+                                                    </aside>
+                                          </section>
+                                          <section>
+                                            <h1>Important Items</h1><ul>
+<li><code>config.rb</code></li>
+<li><code>layouts/</code></li>
+<li>Assets <code>javascripts</code>, <code>stylesheets</code>, <code>images</code></li>
+</ul>
+
+                                                    <aside class="notes"><ul>
+<li>Main configuration file and bootstrap script for middleman</li>
+<li>Markup templates that other pages will inherit</li>
+<li>Folders for normal assets that will be included in the asset pipeline</li>
+</ul>
+
+                                                    </aside>
+                                          </section>
+                                          <section>
+                                            <h1>config.rb</h1><h6 id="sample">Sample</h6>
+<pre><code>configure :development do
+  activate :livereload
+end
+
+set :css_dir, &#39;stylesheets&#39;
+set :js_dir, &#39;javascripts&#39;
+set :images_dir, &#39;images&#39;
+
+# Build-specific configuration
+configure :build do
+end
+</code></pre>
+                                          </section>
+                                          <section>
+                                            <h1>layouts</h1><h4 id="whats-this-erb-thing-">Whats this .erb thing!</h4>
+<p>Ruby has a natural templating engine called erb designed to be very similar to HTML. But Haml works out of the box and they can coexist.</p>
+<p>Take note <strong>&lt;%= yield %&gt;</strong></p>
+
+                                                    <aside class="notes"><p>yield is what makes this a layout wherever yield is invoked the content of your page will be inserted.</p>
+
+                                                    </aside>
+                                          </section>
+                        </section>
+        <!-- Haml Slide Group-->
+                        <section>
+                                          <section>
+                                            <h1>Haml</h1><p>&quot;Beautiful, DRY,</p>
+<p>well-indented, clear markup:</p>
+<p>templating haiku.&quot;</p>
+
+                                          </section>
+                                          <section>
+                                            <h3>Haml Comparison to ERB</h3><div class="sample">
+      <div class="box" style="float:left; width:50%;">
+        <h2 class="sample-erb">.erb</h2>
+        <pre style="background-color:white; color:black; font-size:1.4rem;">&lt;<b class="tag">section</b> class<b class="pun">=”</b>container<b class="pun">”</b>&gt;
+  &lt;<b class="tag">h1</b>&gt;&lt;<b class="pun">%= post.title %</b>&gt;&lt;/<b class="tag">h1</b>&gt;
+  &lt;<b class="tag">h2</b>&gt;&lt;<b class="pun">%= post.subtitle %</b>&gt;&lt;/<b class="tag">h2</b>&gt;
+  &lt;<b class="tag">div</b> class<b class="pun">=”</b>content<b class="pun">”</b>&gt;
+    &lt;<b class="pun">%= post.content %</b>&gt;
+  &lt;/<b class="tag">div</b>&gt;
+&lt;/<b class="tag">section</b>&gt;</pre>
+      </div>
+      <div class="box" style="float:left; width:50%; font-size:1.4em;">
+        <h2 class="sample-haml">.haml</h2>
+        <pre style="background-color:white; color:black;">%<b class="tag">section</b>.<b class="tag">container</b>
+  %<b class="tag">h1</b><b class="pun">=</b> post.title
+  %<b class="tag">h2</b><b class="pun">=</b> post.subtitle
+  .<b class="tag">content</b>
+    <b class="pun">=</b> post.content
+</pre>
+      </div>
+    </div>
+
+                                          </section>
+                                          <section>
+                                            <h1>Elements</h1><ul>
+<li>Start with a <code>%</code> like <code>%body</code></li>
+<li>There is no open and close we handle nesting with Indentation</li>
+</ul>
+
+                                                    <aside class="notes"><p>Indentation matters here %body represents <body></body> while anything
+indented under that will be considered inside the body element</p>
+
+                                                    </aside>
+                                          </section>
+                                          <section>
+                                            <h3>Nesting</h3><h6 id="haml">Haml</h6>
+<pre><code>%body
+  %h3 Happy
+</code></pre><h6 id="html">HTML</h6>
+<pre><code>&lt;body&gt;
+  &lt;h3&gt;Happy&lt;/h3&gt;
+&lt;/body&gt;
+</code></pre>
+                                                    <aside class="notes"><p>Really the nesting thing should be pretty natural If you write your HTML
+with a clean style your haml will just be more terse and easier to read.</p>
+
+                                                    </aside>
+                                          </section>
+                                          <section>
+                                            <h1>Attributes</h1><ul>
+<li>CLASS starts with <strong>.</strong> like <strong>.container</strong></li>
+<li>ID starts with <strong>#</strong> like <strong>#menu</strong></li>
+<li>In combination with other Elements %body<strong>.container</strong></li>
+<li>In the case of divs the element can be skipped so <strong>#menu</strong> is a div with ID menu</li>
+<li>For everything else we use a Ruby Hash {key: &quot;value&quot;}</li>
+</ul>
+
+                                                    <aside class="notes"><p>These . and # symbols are shortcuts to make the comparison between
+CSS selectors and your markup as close as possible visually</p>
+
+                                                    </aside>
+                                          </section>
+                                          <section>
+                                            <h3># and . Samples</h3><h6 id="haml">Haml</h6>
+<pre><code>#logo.container
+  %h3#title Happy
+  %a{href:&quot;www.google.com&quot;} Link to google
+</code></pre><h6 id="html">HTML</h6>
+<pre><code>&lt;div id=&quot;logo&quot; class=&quot;container&quot;&gt;
+  &lt;h3 id=&quot;title&quot;&gt;Happy&lt;/h3&gt;
+  &lt;a href=&quot;www.google.com&quot;&gt;Link to google&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+                                                    <aside class="notes"><p>Order should go ID then CLASS</p>
+<p>Notice that the divs are implied with class and id shortcuts</p>
+
+                                                    </aside>
+                                          </section>
+                                          <section>
+                                            <h1>Partials</h1><ul>
+<li>Abstraction of oft repeated markup</li>
+<li>eg. Navigation, Headers, &amp; Footers</li>
+<li>Modularization of display components
+(pieces that look the same and are repeated)</li>
+<li>eg. Products on Ecom and Blog entries</li>
+</ul>
+
+                                                    <aside class="notes"><p>Abstraction is key to reducing errors and to reduce time updating things.
+Making an update to a repeated structure is now encapsulated in a single file
+and much easier to use in multiple pages of your site.</p>
+
+                                                    </aside>
+                                          </section>
+                                          <section>
+                                            <h3>Partial Syntax</h3><h6 id="partial-tagline-haml-">Partial(tagline.haml)</h6>
+<pre><code>#tagline HI I LOVE STUFF
+</code></pre><h6 id="haml">Haml</h6>
+<pre><code>#logo.container
+  = render :partial =&gt; &quot;tagline&quot;
+  %a{href:&quot;www.google.com&quot;} Link to google
+  = render :partial =&gt; &quot;tagline&quot;
+</code></pre><h6 id="html">HTML</h6>
+<pre><code>&lt;div id=&quot;logo&quot; class=&quot;class&quot;&gt;
+  &lt;div id=&quot;tagline&quot;&gt;
+    HI I LOVE STUFF
+  &lt;/div&gt;
+  &lt;a href=&quot;www.google.com&quot;&gt;Link to google&lt;/a&gt;
+  &lt;div id=&quot;tagline&quot;&gt;
+    HI I LOVE STUFF
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                                          </section>
+                                          <section>
+                                            <h1>MORE INFO</h1><p><a href="http://haml.info/tutorial.html">HAML Tutorial</a></p>
+
+                                          </section>
+                                          <section>
+                                            <h1>Tools</h1><p><a href="http://htmltohaml.com">HTML2HAML</a></p>
+
+                                          </section>
+                        </section>
+        <!-- Sass Slide Group-->
+                        <section>
+                                          <section>
+                                            <h1>Sass</h1><p>&quot;Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.&quot;</p>
+
+                                          </section>
+                                          <section>
+                                            <h3>Trivial Example</h3><h6 id="sass-scss-">Sass(SCSS)</h6>
+<pre><code>.thing{
+  background: black;
+}
+</code></pre><h6 id="css">CSS</h6>
+<pre><code>.thing{
+  background: black;
+}
+</code></pre>
+                                                    <aside class="notes"><p>Wow it looks the same unlike Haml. That is the real power of SCSS
+as a super-set of CSS any and all CSS is already SCSS</p>
+
+                                                    </aside>
+                                          </section>
+                                          <section>
+                                            <h3>Less Trivial Example</h3><h6 id="sass-scss-">Sass(SCSS)</h6>
+<pre><code>$base_color: black;
+.thing{
+  color: $base_color;
+  .nested-thing{
+    color:lighten($base_color, 10%)
+  }
+}
+</code></pre><h6 id="css">CSS</h6>
+<pre><code>.thing {
+  color: black;
+}
+.thing .nested-thing {
+  color: #1a1a1a;
+}
+</code></pre>
+                                                    <aside class="notes"><p>Sass adds a lot of features but in the end it turns into CSS again. Sass does let us also
+write extensible modules that can act a little like partials in the scope of CSS</p>
+
+                                                    </aside>
+                                          </section>
+                                          <section>
+                                            <h3>Nesting</h3><h6 id="sass-scss-">Sass(SCSS)</h6>
+<pre><code>$base_color: black;
+.thing{
+  color: $base_color;
+  .nested-thing{
+    color: lighten($base_color, 10%);
+    .deeply-nested-thing{
+      color: darken($base_color, 10%);
+    }
+  }
+}
+</code></pre><h6 id="css">CSS</h6>
+<pre><code>.thing {
+  color: black;
+}
+.thing .nested-thing {
+  color: #1a1a1a;
+}
+.thing .nested-thing .deeply-nested-thing {
+  color: black;
+}
+</code></pre>
+                                                    <aside class="notes"><p>Nesting is kind of a theme with computers because the two primary activities that programming languages
+let us exercise is abstraction and encapsulation. CSS handles nesting by creating multiple statements of
+selector inheritance. To be noted in our previous non trivial example.</p>
+
+                                                    </aside>
+                                          </section>
+                                          <section>
+                                            <h3>the &amp; symbol and what does it do</h3><p>It converts a nested selector to join the previous selector on the same element as opposed to being on a child
+element</p>
+
+                                          </section>
+                                          <section>
+                                            <h3>&amp; Example</h3><h6 id="scss-scss-">SCSS(SCSS)</h6>
+<pre><code>$base_color: black;
+.thing{
+  &amp;.nested-thing{
+    background: lighten($base_color, 10%);
+  }
+}
+</code></pre><h6 id="css-with-ampersand">CSS With Ampersand</h6>
+<pre><code>.thing.nested-thing {
+  background: #1a1a1a;
+}
+</code></pre><h6 id="css-without-ampersand">CSS Without Ampersand</h6>
+<pre><code>.thing .nested-thing {
+  background: #1a1a1a;
+}
+</code></pre>
+                                                    <aside class="notes"><p>This definitely needs a HTML/CSS Example on the whiteboard where there is more space</p>
+
+                                                    </aside>
+                                          </section>
+                                          <section>
+                                            <h3>@import</h3><p>An extension of CSS @Import to combine multiple files into a single stylesheet at compile time.</p>
+
+                                                    <aside class="notes"><p>No longer do you need to have multiple html link elements to help organize your stylesheets. This is an important concept to keep styles
+short and on topic. Navigation can have its own sheet so its easier to encapsulate styles.</p>
+
+                                                    </aside>
+                                          </section>
+                                          <section>
+                                            <h3>@include</h3><p><strong>Inlines</strong> style templates called <strong>Mixins</strong>(like a function) written by yourself or provided by frameworks like <strong>Bourbon</strong></p>
+
+                                          </section>
+                                          <section>
+                                            <h3>@include example</h3><h6 id="sass">Sass</h6>
+<pre><code>@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+.box { @include border-radius(10px); }
+</code></pre><h6 id="css">CSS</h6>
+<pre><code>.box {
+  border-radius: 10px;
+}
+</code></pre>
+                                          </section>
+                                          <section>
+                                            <h1>There is sooo much more</h1><p>A story for another day</p>
+
+                                                    <aside class="notes"><p>Sass like CSS is best experienced one at a time</p>
+
+                                                    </aside>
+                                          </section>
+                                          <section>
+                                            <h1>MORE INFO</h1><p><a href="http://sass-lang.com/guide">Guide</a></p>
+
+                                          </section>
+                                          <section>
+                                            <h1>Tools</h1><p><a href="http://sassmeister.com">Sass Meister</a></p>
+
+                                          </section>
+                        </section>
+        <!-- Bourbon-->
+                        <section>
+                                          <section>
+                                            <h1>Bourbon Neat and Bitters</h1><ul>
+<li>Bourbon - <strong>Mixin</strong> library for Sass</li>
+<li>Neat - Responsive grid framework for Sass</li>
+<li>Bitters - Basic Styles and variables for Bourbon Projects</li>
+</ul>
+
+                                                    <aside class="notes"><p>Remember that markdown thing we looked at well this is what comes of giving people the opportunity to build
+extensible styles. If you include bourbon in your project and never use any of its mixins it does not add
+anything to your styles.</p>
+
+                                                    </aside>
+                                          </section>
+                                          <section>
+                                            <h1>Installing</h1><h5 id="thankfully-because-of-sass-s-integration-with-ruby-they-made-gems-for-them">Thankfully because of Sass&#39;s integration with ruby they made gems for them</h5>
+<ul>
+<li>add <code>gem &quot;neat&quot;, &quot;~&gt; 1.7.1&quot;</code> to your Gemfile</li>
+<li>add <code>gem &quot;bitters&quot;, &quot;~&gt; 1.0.0&quot;</code> to your Gemfile</li>
+<li>run <code>bundle install</code></li>
+<li>change directory to stylesheets folder <code>cd source/stylesheets</code></li>
+<li>run <code>bourbon install</code> and <code>neat install</code> and <code>bitters install</code></li>
+</ul>
+
+                                          </section>
+                                          <section>
+                                            <h3>Setting up the Grid (Neat)</h3><h6 id="_grid-settings-scss">_grid-settings.scss</h6>
+<pre><code>@import &quot;neat/neat-helpers&quot;; // or &quot;neat-helpers&quot; when in Rails
+// Change the grid settings
+$column: 90px;
+$gutter: 30px;
+$grid-columns: 12;
+$max-width: em(1088);
+$visual-grid: true; // So we can see our grid
+</code></pre>
+                                          </section>
+                                          <section>
+                                            <h3>Setting up Bourbon</h3><h6 id="bourbon-scss">bourbon.scss</h6>
+<pre><code>@charset &quot;utf-8&quot;;
+@import &quot;bourbon/bourbon&quot;; // or &quot;bourbon&quot; when in Rails
+@import &quot;grid-settings&quot;;
+@import &quot;neat/neat&quot;; // or &quot;neat&quot; when in Rails
+@import &quot;base/base&quot;;
+</code></pre>
+                                          </section>
+                                          <section>
+                                            <h3>Updating our all.css</h3><h6 id="all-scss">all.scss</h6>
+<pre><code>@charset &quot;utf-8&quot;;
+@import &quot;bourbon/bourbon&quot;; // or &quot;bourbon&quot; when in Rails
+@import &quot;grid-settings&quot;;
+@import &quot;neat/neat&quot;; // or &quot;neat&quot; when in Rails
+@import &quot;base/base&quot;;
+</code></pre>
+                                          </section>
+                                          <section>
+                                            <h1>Neat tools</h1><ul>
+<li><code>@include outer-container;</code></li>
+<li><code>@include span-columns(n);</code></li>
+<li><code>@include shift(n)</code></li>
+</ul>
+
+                                          </section>
+                                          <section>
+                                            <h1>MORE INFO</h1><p><a href="http://neat.bourbon.io/examples/">Examples</a></p>
+
+                                          </section>
+                        </section>
+                        <section>
+                          <h1>Lets Build Something</h1>
+                          <p>To the whiteboard</p>
+                        </section>
+      </div>
+    </div>
+    <script type="text/javascript" src="bower_components/reveal.js/lib/js/head.min.js"></script>
+    <script type="text/javascript" src="bower_components/reveal.js/js/reveal.js"></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+       Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'moon',
+        slideNumber: true,
+        transition: 'concave',
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: revealLocation + 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: revealLocation + 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: revealLocation + 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: revealLocation + 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: revealLocation + 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+       });
+    </script>
+  </body>
+</html>
